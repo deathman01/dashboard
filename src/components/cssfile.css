@@ -1,0 +1,20 @@
+.body{
+    background-color: whitesmoke;
+    margin-top: -1.3%;
+}
+.head {
+    text-align: center;
+    text-emphasis: 50px;
+    color: brown;
+}
+.v1 {
+    border-left: 2px solid gray;
+    height: 635px;
+    left: 50%;
+    margin-left: 10%;
+    margin-top:-0.9%;
+  }
+  hr { 
+    display: line;
+    border-width: 3px;
+  } 

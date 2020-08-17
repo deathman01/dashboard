@@ -10,7 +10,7 @@ cd dashboard
 
 after that to meet the node dependency : -                                                        
 
-2.> npm install  (inside the dashboard);
+2. > npm install  (inside the dashboard);
 
 to run the project on thelocal broser as web dependency 
 

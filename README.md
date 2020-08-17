@@ -1,7 +1,7 @@
 To run the project locally:
 git clone/download from github(directly) :- to download the folder on local machine;              
 
-git clone https://github.com/deathman01/dashboard.git
+1. >git clone https://github.com/deathman01/dashboard.git
 
 cd dashboard : to enter inside the downloaded folder.                                             
 
@@ -10,16 +10,16 @@ cd dashboard
 
 after that to meet the node dependency : -                                                        
 
-npm install  (inside the dashboard);
+2.> npm install  (inside the dashboard);
 
 to run the project on thelocal broser as web dependency 
 
-npm start
+3. >npm start
 
 or
 to serve static file 
 
-npm run build     -     npm install -g serve       -       serve -s build
+3. > npm run build     -     npm install -g serve       -       serve -s build
 
 
 

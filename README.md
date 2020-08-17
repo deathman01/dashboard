@@ -1,3 +1,12 @@
+Project is developed using Create-react-App
+
+Setup: run 'npm install' run 'npm start'
+
+For React frontend: cd client run 'npm install' run 'npm start'
+
+For production build: cd client run 'npm run build'
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

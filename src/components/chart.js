@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './cssfile.css';
-import {Bar, Line, Pie } from 'react-chartjs-2';
+import {Bar, Line, Pie, Doughnut } from 'react-chartjs-2';
 import 'chartjs-plugin-datalabels';
 class Chart extends Component {
     constructor(props) {
@@ -229,21 +229,21 @@ class Chart extends Component {
                 totalOrderNew+=dataSet[i].newOrder;
                 totalOrderNewVal+=dataSet[i].orderValue;
                 if(dataSet[i].visitBeforePurchase === 1){
-                    v1+=1;
+                    v1+=dataSet[i].orderValue;
                 }else if(dataSet[i].visitBeforePurchase === 2){
-                    v2+=1;
+                    v2+=dataSet[i].orderValue;
                 }else{
-                    v3+=1;
+                    v3+=dataSet[i].orderValue;
                 }
             }else{
                 totalOrderOld+=dataSet[i].newOrder;
                 totalOrderOldVal+=dataSet[i].orderValue;
                 if(dataSet[i].timeBetweenLastTwoPurchase < 7){
-                    lessW+=1;
+                    lessW+=dataSet[i].orderValue;
                 }else if(dataSet[i].timeBetweenLastTwoPurchase >= 7 && dataSet[i].timeBetweenLastTwoPurchase <=30){
-                    betW+=1;
+                    betW+=dataSet[i].orderValue;
                 }else{
-                    grtMo+=1;
+                    grtMo+=dataSet[i].orderValue;
                 }
             }
             totalOrder+=dataSet[i].newOrder;
@@ -262,7 +262,7 @@ class Chart extends Component {
             datasets: [
               {
                 label: 'Totalsale %',
-                data: [totalOrderNew,totalOrderOld,0,70],
+                data: [totalOrderNew,totalOrderOld],
                 backgroundColor:[
                     'rgba(255,19,20,0.6)',
                     'rgba(55,199,55,0.6)',
@@ -277,7 +277,7 @@ class Chart extends Component {
             datasets: [
               {
                 label: 'TotalOrder %',
-                data: [totalOrderNewVal,totalOrderOldVal,0,70],
+                data: [totalOrderNewVal,totalOrderOldVal],
                 backgroundColor:[
                     'rgba(255,190,20,0.6)',
                     'rgba(55,199,55,0.6)',
@@ -287,14 +287,14 @@ class Chart extends Component {
           }
           const data3st = {
             labels: [
-              '1', '2','3'
+              '1 Visit', '2 Visit','3 Visit'
             ],
             datasets: [
               {
-                label: 'Visits Before Purchase',
-                data: [v1,v2,v3,0,8],
+                label: 'Visits Before Purchase  $',
+                data: [v1,v2,v3,0],
                 backgroundColor:[
-                    'rgba(255,190,20,0.6)',
+                    'rgba(255,19,20,0.6)',
                     'rgba(55,199,55,0.6)',
                     'rgba(55,199,255,0.6)',
                 ]
@@ -307,8 +307,8 @@ class Chart extends Component {
             ],
             datasets: [
               {
-                label: 'Time Between Two Purchase',
-                data: [lessW,betW,grtMo,0,8],
+                label: 'Time Between Two Purchase $',
+                data: [lessW,betW,grtMo,0,2500],
                 backgroundColor:[
                     'rgba(255,190,20,0.6)',
                     'rgba(55,199,55,0.6)',
@@ -321,19 +321,26 @@ class Chart extends Component {
         <div className="body">
             <div className="head">
                 <br/>
-            <h1>MONDAY MORNING SALES REPORT</h1>
-            <hr/>
+            <h1>MONDAY MORNING SALES REPORT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            #DASHBOARD  </h1>
             </div>
+            <hr/>
             <div className="dowmHead">
                 <div className="leftBar">
-                    <div className="leftBarData">data</div>
+                    <div className="leftBarData">
+                        </div>
                     <div class="vl"></div>
                 </div>
+                <div class="vlm"></div>
                 <div className="rightBar">
                 <div className="tabl">
                 <div><h1></h1></div>
                 <div className="left">
-                    <Bar data={data1st}
+                    <Doughnut data={data1st}
                         options={{
                             responsive: true,   
                             maintainAspectRatio:false,
@@ -342,6 +349,7 @@ class Chart extends Component {
                                 text: 'Total Order:'+totalOrder,
                                 fontSize: 20,
                             },
+                            
                             scales: {
                                 xAxes: [{
                                     gridLines: {
@@ -361,14 +369,14 @@ class Chart extends Component {
                                 datalabels: {
                                    display: true,
                                    color: 'black',
-                                   align: 'end'
+                                    
                                 }
                              }
                      }}
                     />
                 </div>
-                <div classname="right">
-                    <Bar data={data2st}
+                <div className="right">
+                    <Doughnut data={data2st}
                         options={{
                             responsive: true,   
                             maintainAspectRatio:false,
@@ -411,6 +419,10 @@ class Chart extends Component {
                                 text: 'New Costoumer Insights',
                                 fontSize: 20,
                             },
+                            legend: {
+                                display: true,
+                                
+                            },
                             scales: {
                                 xAxes: [{
                                     gridLines: {
@@ -421,14 +433,15 @@ class Chart extends Component {
                                 yAxes: [{
                                     ticks: { display: true },
                                     gridLines: {
-                                        display: false,
+                                        display: true,
                                         drawBorder: false
                                     }
                                 }]
                              },
                              plugins: {
                                 datalabels: {
-                                   display: false,
+                                    anchor: "end",
+                                   display: true,
                                    color: 'black',
                                    align: 'end'
                                 }
@@ -436,7 +449,7 @@ class Chart extends Component {
                      }}
                     />
                 </div>
-                <div>
+                <div className="downRight">
                     <Bar data={data4st}
                         options={{
                             responsive: true,   
@@ -456,16 +469,17 @@ class Chart extends Component {
                                 yAxes: [{
                                     ticks: { display: true },
                                     gridLines: {
-                                        display: false,
+                                        display: true,
                                         drawBorder: false
                                     }
                                 }]
                              },
                              plugins: {
                                 datalabels: {
-                                   display: false,
+                                    anchor: "end",
+                                   display: true,
                                    color: 'black',
-                                   align: 'end'
+                                   align: 'end',
                                 }
                              }
                      }}

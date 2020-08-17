@@ -1,12 +1,20 @@
 .body{  
-    margin-top: -1.5%;
-    background-color: white;
+    margin-top: -1%;
+    background-color: rgba(246, 251, 253, 0.788);
+}
+h1{
+  color: rgb(12, 91, 209);
 }
 .head {
-    text-align: center;
-    text-emphasis: 50px;
+  display:flex;
+    text-align: left;
+    text-emphasis: 30px;
+    font-size:15px;
     color: brown;
     height:10%;
+    margin-left: 10%;
+    margin-top: 1%;
+    margin-bottom: -1%;
 }
 hr { 
     display: line;
@@ -14,14 +22,12 @@ hr {
 } 
 .downHead {
   display: flex;
+  justify-content: flex-start;
 }
 .leftBar {
   align-content: left;
   display: flex;
-}
-.leftBarData {
-  align-content: center;
-  margin-left: 5% ;
+  height:80%;
 }
 .vl {
   border-left: 4px solid rgb(102, 104, 102);
@@ -30,24 +36,43 @@ hr {
   left: 13%;
   margin-top:-0.9%;
 }
-.rightBar{
-
+.vlm {
+  border-left: 4px solid rgb(102, 104, 102);
+  height: 90%;
+  position: absolute;
+  left: 87%;
+  margin-top:-0.9%;
+}
+.left {
+  background-color: rgba(246, 251, 253, 0.788);
+  border-color: gray;
+}
+.right{
+  background-color:rgba(246, 251, 253, 0.788);
 }
 .tabl {
     height:250px;
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 1%;
-    margin-top: -1%;
-    margin-left: 0%;
+    margin-top: 1%;
+    margin-left: -10%;
+   
+    /*background-color: white;*/
 }
 
 .tab2 {
   height:350px;
   display: flex;
   justify-content: space-evenly;
-  margin-left: -10%;
+  margin-left: -20%;
   margin-top: -0.2%;
+}
+.downLeft {
+  background-color: rgba(246, 251, 253, 0.788);;
+}
+.downRight{
+  background-color: rgba(246, 251, 253, 0.788);;
 }
   
   
